@@ -47,9 +47,9 @@ Create a plain text file (e.g., my_fish_list.txt) with one species per line, usi
 
 Format: Genus species|Family|Common_Name
 
-Gadus morhua|Gadidae|Atlantic cod
+Gadus morhua|Gadidae|Atlantic_cod
 Scophthalmus maximus|Scophthalmidae|Turbot
-Sardina pilchardus|Clupeidae|European sardine
+Sardina pilchardus|Clupeidae|European_sardine
 
 ### 2. The Execution Command
 
@@ -121,6 +121,7 @@ The script executes the full 6-stage pipeline sequentially:
 **Subramaniam Vijayakumar**  
 📧 [subramanyamvkumar@gmail.com]
 🔗 [GitHub: SUBRAMANIAM96]
+
 
 
 
