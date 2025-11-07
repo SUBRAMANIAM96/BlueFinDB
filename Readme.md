@@ -1,113 +1,122 @@
-# 🐟 BlueFinDB – Custom 12S Reference Database Tool
+# 🐟 BlueFinDB v2.0.0: High-Confidence 12S Reference Database Creator
 
-BlueFinDB is a lightweight and user-friendly tool for building custom BLAST databases from fish 12S rRNA sequences. Designed with simplicity in mind, it allows researchers, students, and conservationists to generate their own searchable database from a list of species names.
+BlueFinDB is a robust, single-command utility designed for ecologists and bioinformaticians to build publication-ready, high-fidelity 12S rRNA fish reference databases (libraries) for eDNA metabarcoding and taxonomic assignment.
 
-With BlueFinDB, you can create a specialized reference for diet analysis, metabarcoding, and biodiversity studies without needing to manually download or curate sequences. Just provide a plain text species list, and BlueFinDB handles the rest.
+It automates critical molecular and taxonomic validation steps that are often manual in simple bioinformatics workflows.
 
+## Key Features (v2.0.0 — The Publication Version)
+
+BlueFinDB integrates the best practices of complex pipelines (like in silico PCR and taxonomic API tracing) into a single, accessible Bash/Python workflow:
+
+    **100% Taxonomically Validated**: Automatically performs a 1:1 lookup against NCBI using the Accession ID to retrieve and integrate the official TaxID, Class, Order, and Family into the FASTA header, guaranteeing data traceability and credibility.
+
+    **Molecular Fidelity (Dual-Trimming)**: Employs mismatch-tolerant in silico PCR (cutadapt -e 0.20) with a competitive dual-trimming logic (MiFish-U and MiFish-E) to maximize the isolation of the optimal gene fragment for mixed fauna (Teleosts and Elasmobranchs).
+
+    **Targeted Curation**: Uses a sequence length filter (AND 100:1500[SLEN]) in the NCBI query to deliberately exclude massive mitochondrial genomes and prioritize trimmable 12S-specific gene fragments for reliable amplicon preparation.
+
+    **Zero-Step Deployment**: Automatically executes makeblastdb (Stage 6) after curation, providing a fully indexed, searchable database file that is immediately ready for blastn queries.
+
+    **Full Traceability**: Generates detailed audit logs (bluefindb_run.log and cutadapt_details.log) documenting every API call, trimming attempt, and final accession used for reproducible science.
+
+## 📥 Requirements & Setup
+
+   **Requirements
+**
+    OS: Linux, macOS, or WSL (Windows Subsystem for Linux).
+    Core Tools: python3 (with Biopython), NCBI EDirect (esearch, efetch), and BLAST+ (makeblastdb, blastn).
+    Trimming Tool: cutadapt (required if using the --mifish-preset or --trim-primers flags).
 ---
 
-## ✅ Features
-
-- Downloads sequences from NCBI
-- Selects the **best (longest) sequence per species**
-- Merges sequences
-- Formats **BLAST-ready headers**
-- Produces a database ready for BLAST analyses
-
----
-
-## 📂 Folder Structure
+## 📂 Project Structure
 
 BlueFinDB/
-├── core/
-│ └── bluefindb # compiled binary (hidden core script)
-├── run_bluefindb.sh # user wrapper
-├── test/
-│ └── species_list_test.txt # small test species list
-├── species_list.txt # example species list
-└── README.md # this file
+├── run_bluefindb.sh          # The main launcher script (user interface)
+├── bluefindb_core.py         # The Python engine (all logic and validation)
+├── species_list.txt          # ⬅️ User Input File
+├── fish_12s_raw/             # Downloaded raw sequences
+├── fish_12s_filtered/        # Best sequence per species (pre-merge)
+├── BlueFinDB_12S_Fish.n* # Final BLAST index files
+├── bluefindb_run.log         # Complete execution history and API calls
+└── cutadapt_details.log      # Molecular audit log for trimming alignment
 ---
 
-## 🔹 Requirements
+## 🔹 How to Run BlueFinDB (The One-Command Workflow)
 
-- Linux, WSL (Windows Subsystem for Linux), or macOS
-- BLAST+ (required for local BLAST)
-- EDirect (esearch/efetch) for NCBI sequence download
-- Python 3 with Biopython
+The entire database curation process is executed using a single command that handles everything from downloading sequences to indexing the final database.
 
-Install Biopython with:
+### 1. Create the Input List
 
+Create a plain text file (e.g., my_fish_list.txt) with one species per line, using the pipe (|) separator:
 
+Format: Genus species|Family|Common_Name
+
+Gadus morhua|Gadidae|Atlantic cod
+Scophthalmus maximus|Scophthalmidae|Turbot
+Sardina pilchardus|Clupeidae|European sardine
+
+### 2. The Execution Command
+
+You must provide your species list file and your email address (mandatory for NCBI API access). You then choose your trimming strategy.
+
+Recommended Command (using the robust MiFish Preset):
+
+IMPORTANT: Replace user@email.com with your actual email address.
+
+./run_bluefindb.sh my_list.txt \
+    --email user@email.com \
+    --mifish-preset \
+    [--api-key ABCDEFGHIJKLMNOPQRSTUVWXYZ]
+
+### 3. Command Line Arguments Breakdown
+
+| Argument | Status | Description |
+| :--- | :--- | :--- |
+| `my_list.txt` | **Mandatory** | Path to your input file containing the list of target species. |
+| **`--email`** | **Mandatory** | Your email address (required by NCBI for programmatic access). |
+| **`--api-key`** | *Optional* | Your personal NCBI API key. Highly recommended for large lists to prevent rate-limiting and speed up the batch process. |
+| **`--mifish-preset`** | *Optional* | Activates the Dual-Trimming Logic. Automatically loads the optimal core sequences for both MiFish-U (Teleost) and MiFish-E (Elasmobranch) and performs a competitive trim. |
+| **`--trim-primers`** | *Optional* | Use this instead of `--mifish-preset` if you have your own single set of primers. Must be followed by both sequences in quotes. |
+| **`--sleep`** | *Optional* (Default: 15) | Seconds to pause after every batch of 10 species to ensure stable API connection. |
+3. Running a Local BLAST Query
+
+### 3. Execution Flow and Output
+
+The script executes the full 6-stage pipeline sequentially:
+
+| Stage | Action | Verification |
+| :--- | :--- | :--- |
+| **Stage 1: Setup** | Checks system dependencies (Python, EDirect, BLAST+, cutadapt). | Console reports `NOTICE: Trimming requested. Checking for cutadapt... OK.` |
+| **Stage 2-4: Curation** | Downloads data, selects longest sequence, validates taxonomy, and performs the Dual-Trimming on the gene fragment. | `bluefindb_run.log` shows `Taxonomy SUCCESS` and `Trimming SUCCESS` for each species. |
+| **Stage 5: Merging** | Combines all curated sequences into `fish_12s_BLAST.fasta` with fully enriched headers. | FASTA file created. |
+| **Stage 6: Deployment** | Automatically executes `makeblastdb` on the final FASTA file. | Console reports: `SUCCESS! BLAST database is fully indexed and ready to use.` |
+## Final Output Files
+
+### I. Core Products (The Final Database)
+
+| File Name | Format/Type | Information Provided |
+| :--- | :--- | :--- |
+| **`fish_12s_BLAST.fasta`** | **FASTA** | The **final curated database file**. Contains optimized 12S gene fragments with fully enriched, validated taxonomic headers (TaxID, Class, Order, Family, etc.). |
+| **`BlueFinDB_12S_Fish.n*`** | **BLAST Index Files** | The indexed files (.nhr, .nin, .nsq, etc.) created automatically by **`makeblastdb`**. These files make your database instantly searchable. |
+| `fish_12s_merged.fasta` | **FASTA** | An intermediate file containing all filtered, curated sequences combined just before the final header enrichment step. |
+
+### II. Audit and Reproducibility Files
+
+| File Name | Content | Scientific Value |
+| :--- | :--- | :--- |
+| **`fish_12s_accessions.tsv`** | **TSV** (Tab-Separated) | **Provenance Log.** Lists the final chosen **Accession ID** and **TaxID** for every species, serving as the reproducibility manifest. |
+| **`bluefindb_run.log`** | **Plain Text Log** | **Stability Audit.** Provides a chronological history of the execution, including NCBI queries, batch timing, and overall success/failure status. |
+| **`cutadapt_details.log`** | **Verbose Log** | **Molecular Audit Trail.** Contains the raw output of **`cutadapt`** for every single trimming attempt. This proves in silico PCR occurred, showing alignment statistics and confirming the resulting amplicon length for validation. |
 ---
 
-## 🔹 How to Make a Species List File
 
-Create a plain text file (`.txt`) with each species on a separate line.
-
-Optionally, include pipe-separated metadata in this order:  
-`Genus species|Family|Common_Name`
-
-**Example (`species_list.txt`):**
-
-Gadus morhua|Gadidae|Atlantic_cod
-Merluccius merluccius|Merlucciidae|European_hake
-Scomber scombrus|Scombridae|Atlantic_mackerel
-Sardina pilchardus|Clupeidae|European_pilchard
-
----
-
-## 🔹 How to Run BlueFinDB
-
-1. Make the wrapper executable (first time only):
-
-    ```
-    chmod +x run_bluefindb.sh
-    ```
-
-2. Make sure your species list text file (e.g., `species_list.txt`) is inside the BlueFinDB folder.
-
-3. Open a terminal and move into the BlueFinDB folder:
-
-    ```
-    cd BlueFinDB
-    ```
-
-4. Run the tool with your species list:
-
-    ```
-    ./run_bluefindb.sh species_list.txt
-    ```
-
----
-
-## 📦 Output Files
-
-After running, the following files/folders will be created:
-
-- `fish_12s_raw/`  → raw sequences downloaded from NCBI
-- `fish_12s_filtered/` → best (longest) sequence per species
-- `fish_12s_merged.fasta` → merged FASTA of best sequences
-- `fish_12s_BLAST.fasta` → BLAST-ready database
-
-⚡ Use `fish_12s_BLAST.fasta` for local BLAST or parsing.
-
----
-
-## 🔹 Using the Test Dataset
-
-To verify installation, run the included test dataset:
-
-./run_bluefindb.sh test/species_list_test.txt
----
 
 ## 🔹 Tips & Notes
 
-- Always run `run_bluefindb.sh` from inside the BlueFinDB folder for simplicity.
-- You can provide any species list file located anywhere by giving the full path.
-- The tool automatically sleeps between NCBI requests to avoid blocking (default = 15 seconds).
+- Always run **run_bluefindb.sh** from inside the BlueFinDB folder to ensure all relative paths are found correctly.
+- The system includes **Batch Processing** and a minimum sleep time to ensure responsible API usage and prevent your access from being blocked by NCBI.
+- Check the **bluefindb_run.log** file first if your run is interrupted or if you encounter unexpected errors.
 - A `test/` folder is included so new users can quickly verify functionality.
-- The tool selects one best (longest) 12S sequence per species automatically.
-
+- The goal of the final process is to produce a 12S gene fragment (not necessarily a ∼170 bp amplicon) that is 100% validated for high-confidence identification.
 ---
 
 ## 👥 Contributors
