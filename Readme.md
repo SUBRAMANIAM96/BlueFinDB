@@ -19,11 +19,11 @@ BlueFinDB integrates the best practices of complex pipelines (like in silico PCR
 
 ## 📥 Requirements & Setup
 
-   **Requirements
-**
-    OS: Linux, macOS, or WSL (Windows Subsystem for Linux).
-    Core Tools: python3 (with Biopython), NCBI EDirect (esearch, efetch), and BLAST+ (makeblastdb, blastn).
-    Trimming Tool: cutadapt (required if using the --mifish-preset or --trim-primers flags).
+   **Requirements**
+
+OS: Linux, macOS, or WSL (Windows Subsystem for Linux).
+Core Tools: python3 (with Biopython), NCBI EDirect (esearch, efetch), and BLAST+ (makeblastdb, blastn).
+Trimming Tool: cutadapt (required if using the --mifish-preset or --trim-primers flags).
 ---
 
 ## 📂 Project Structure
@@ -123,4 +123,5 @@ The script executes the full 6-stage pipeline sequentially:
 **Subramaniam Vijayakumar**  
 📧 [subramanyamvkumar@gmail.com]
 🔗 [GitHub: SUBRAMANIAM96]
+
 
