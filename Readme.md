@@ -23,7 +23,6 @@ OS: Linux, macOS, or WSL (Windows Subsystem for Linux).
 Core Tools: python3 (with Biopython), NCBI EDirect (esearch, efetch), and BLAST+ (makeblastdb, blastn).
 
 Trimming Tool: cutadapt (required if using the --mifish-preset or --trim-primers flags).
----
 
 ## 📂 Project Structure
 
@@ -36,7 +35,7 @@ BlueFinDB/
 ├── BlueFinDB_12S_Fish.n* # Final BLAST index files
 ├── bluefindb_run.log         # Complete execution history and API calls
 └── cutadapt_details.log      # Molecular audit log for trimming alignment
----
+
 
 ## 🔹 How to Run BlueFinDB (The One-Command Workflow)
 
@@ -122,6 +121,7 @@ The script executes the full 6-stage pipeline sequentially:
 **Subramaniam Vijayakumar**  
 📧 [subramanyamvkumar@gmail.com]
 🔗 [GitHub: SUBRAMANIAM96]
+
 
 
 
