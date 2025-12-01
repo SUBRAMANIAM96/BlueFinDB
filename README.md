@@ -384,6 +384,12 @@ The `test/Data/` folder contains pre-configured species lists for validation acr
 
 ---
 
+## 🖼️ Workflow Diagram
+
+BlueFinDB executes through a series of automated stages, each designed to maximize sequence recovery while maintaining quality standards.
+
+![BlueFinDB Workflow Architecture](images/workflow_diagram.png)
+
 ## 📦 Output Files Reference
 
 | File Name | Format | Purpose |
