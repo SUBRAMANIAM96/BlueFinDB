@@ -6,6 +6,7 @@
 3. BlueFinDB addresses this gap with an open-source, multi-marker pipeline designed for flexibility and high recovery rates. It builds highly accurate, project-specific reference libraries for 12S, COI, 16S, and 18S markers. By utilizing standard primer sets (e.g., MiFish, Leray-XT, Vences V4, and Stoeck V9) according to researcher preference, it ensures that valid data is retained and curated rather than discarded.
 
 
+<<<<<<< HEAD
 ## Key Features of BlueFinDB v3.0
 
 ### 1. Enterprise-Grade NCBI Retrieval Architecture 
@@ -75,6 +76,25 @@
     **awk, sed, grep, gunzip:** Used extensively for text stream processing.
 
 ---
+=======
+BlueFinDB integrates the best practices of complex pipelines (like in silico PCR and taxonomic API tracing) into a single, accessible Bash/Python workflow:
+**100% Taxonomically Validated**: Automatically performs a 1:1 lookup against NCBI using the Accession ID to retrieve and integrate the official TaxID, Class, Order, and Family into the FASTA header, guaranteeing data traceability and credibility.
+
+**Molecular Fidelity (Dual-Trimming)**: Employs mismatch-tolerant in silico PCR (cutadapt -e 0.20) with a competitive dual-trimming logic (MiFish-U and MiFish-E) to maximize the isolation of the optimal gene fragment for mixed fauna (Teleosts and Elasmobranchs).
+
+**Targeted Curation**: Uses a sequence length filter (AND 100:1500[SLEN]) in the NCBI query to deliberately exclude massive mitochondrial genomes and prioritize trimmable 12S-specific gene fragments for reliable amplicon preparation.
+
+**Zero-Step Deployment**: Automatically executes makeblastdb (Stage 6) after curation, providing a fully indexed, searchable database file that is immediately ready for blastn queries.
+
+**Full Traceability**: Generates detailed audit logs (bluefindb_run.log and cutadapt_details.log) documenting every API call, trimming attempt, and final accession used for reproducible science.
+
+## 📥 Requirements & Setup
+OS: Linux, macOS, or WSL (Windows Subsystem for Linux).
+
+Core Tools: python3 (with Biopython), NCBI EDirect (esearch, efetch), and BLAST+ (makeblastdb, blastn).
+
+Trimming Tool: cutadapt (required if using the --mifish-preset or --trim-primers flags).
+>>>>>>> 66bf02d623b85a9b3a53dc94fee3a7d2502edc23
 
 ## 📂 File Structure
 
@@ -82,6 +102,7 @@ The repository is organized into a modular architecture.
 
 ```text
 BlueFinDB/
+<<<<<<< HEAD
 ├── 📜 Bluefindb_run.sh          # 🚀 MASTER SCRIPT: Run this to start the pipeline
 ├── 📜 Bluefindb_qc.sh           # Standalone Quality Control (QC) module
 ├── 🧠 core/                     # Intelligence Engine
@@ -99,6 +120,17 @@ BlueFinDB/
 
 ---
 ## ⚙️ Script Architecture 
+=======
+├── run_bluefindb.sh          # The main launcher script (user interface)
+├── bluefindb_core.py         # The Python engine (all logic and validation)
+├── species_list.txt          # ⬅️ User Input File
+├── fish_12s_raw/             # Downloaded raw sequences
+├── fish_12s_filtered/        # Best sequence per species (pre-merge)
+├── BlueFinDB_12S_Fish.n* # Final BLAST index files
+├── bluefindb_run.log         # Complete execution history and API calls
+└── cutadapt_details.log      # Molecular audit log for trimming alignment
+
+>>>>>>> 66bf02d623b85a9b3a53dc94fee3a7d2502edc23
 
 ### 1. Bluefindb_run.sh (The Orchestrator)
 
@@ -110,7 +142,13 @@ BlueFinDB/
 
     **Flow Control:** Executes the Core Engine, monitors exit codes, triggers the Rescue System if gaps are detected, and finally launches the QC module.
 
+<<<<<<< HEAD
 ### 2. Bluefindb_core.py (The Mining Engine)
+=======
+Gadus morhua|Gadidae|Atlantic_cod
+Scophthalmus maximus|Scophthalmidae|Turbot
+Sardina pilchardus|Clupeidae|European_sardine
+>>>>>>> 66bf02d623b85a9b3a53dc94fee3a7d2502edc23
 
   **Function:** Retrieval, In-Silico PCR, & Hybrid Mining The computational heart of the tool. It performs the heavy lifting:
 
@@ -531,9 +569,8 @@ BlueFinDB/
 ##👨‍💻 Author & Contact
 
     **Subramaniam Vijayakumar**
-
     Role: Lead Developer & Bioinformatics Architect
-
     Tool Version: v3.0
-
     Contact: (vijayakumar.subraman@mail.ucv.es)
+
+  
