@@ -1,0 +1,54 @@
+# Format: Species_Name|Family|Common_Name(TEST)
+# Family and Common Name are used for the final header enrichment
+# COI TEST LIST - INVERTEBRATES
+
+Homarus americanus|Nephropidae|American_lobster
+Homarus gammarus|Nephropidae|European_lobster
+Cancer pagurus|Cancridae|Brown_crab
+Carcinus maenas|Portunidae|European_green_crab
+Callinectes sapidus|Portunidae|Blue_crab
+Chionoecetes opilio|Oregoniidae|Snow_crab
+Paralithodes camtschaticus|Lithodidae|Red_king_crab
+Scylla serrata|Portunidae|Giant_mud_crab
+Maja squinado|Majidae|European_spider_crab
+Nephrops norvegicus|Nephropidae|Norway_lobster
+Penaeus monodon|Penaeidae|Giant_tiger_prawn
+Litopenaeus vannamei|Penaeidae|Whiteleg_shrimp
+Crangon crangon|Crangonidae|Brown_shrimp
+Pandalus borealis|Pandalidae|Northern_prawn
+Euphausia superba|Euphausiidae|Antarctic_krill
+Mytilus edulis|Mytilidae|Blue_mussel
+Mytilus galloprovincialis|Mytilidae|Mediterranean_mussel
+Ostrea edulis|Ostreidae|European_flat_oyster
+Crassostrea gigas|Ostreidae|Pacific_oyster
+Pecten maximus|Pectinidae|Great_scallop
+Aequipecten opercularis|Pectinidae|Queen_scallop
+Cerastoderma edule|Cardiidae|Common_cockle
+Ruditapes philippinarum|Veneridae|Manila_clam
+Mercenaria mercenaria|Veneridae|Hard_clam
+Ensis ensis|Pharidae|Razor_shell
+Buccinum undatum|Buccinidae|Common_whelk
+Littorina littorea|Littorinidae|Common_periwinkle
+Haliotis tuberculata|Haliotidae|Green_ormer
+Loligo vulgaris|Loliginidae|Common_squid
+Sepia officinalis|Sepiidae|Common_cuttlefish
+Octopus vulgaris|Octopodidae|Common_octopus
+Todarodes pacificus|Ommastrephidae|Japanese_flying_squid
+Dosidicus gigas|Ommastrephidae|Humboldt_squid
+Asterias rubens|Asteriidae|Common_starfish
+Acanthaster planci|Acanthasteridae|Crown-of-thorns_starfish
+Paracentrotus lividus|Parechinidae|Purple_sea_urchin
+Echinus esculentus|Echinidae|Edible_sea_urchin
+Strongylocentrotus droebachiensis|Strongylocentrotidae|Green_sea_urchin
+Holothuria scabra|Holothuriidae|Sandfish_cucumber
+Aurelia aurita|Ulmaridae|Moon_jellyfish
+Cyanea capillata|Cyaneidae|Lion_s_mane_jellyfish
+Chrysaora hysoscella|Pelagiidae|Compass_jellyfish
+Pelagia noctiluca|Pelagiidae|Mauve_stinger
+Actinia equina|Actiniidae|Beadlet_anemone
+Anemonia viridis|Actiniidae|Snakelocks_anemone
+Semibalanus balanoides|Archaeobalanidae|Acorn_barnacle
+Lepas anatifera|Lepadidae|Goose_barnacle
+Gammarus locusta|Gammaridae|Common_amphipod
+Talitrus saltator|Talitridae|Sand_hopper
+Arenicola marina|Arenicolidae|Lugworm

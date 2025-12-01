@@ -1,0 +1,54 @@
+# Format: Species_Name|Family|Common_Name(TEST)
+# Family and Common Name are used for the final header enrichment
+# 16S TEST LIST - VERTEBRATES (MAMMALS/AMPHIBIANS)
+
+Balaenoptera musculus|Balaenopteridae|Blue_whale
+Megaptera novaeangliae|Balaenopteridae|Humpback_whale
+Balaenoptera physalus|Balaenopteridae|Fin_whale
+Orcinus orca|Delphinidae|Killer_whale
+Tursiops truncatus|Delphinidae|Bottlenose_dolphin
+Delphinus delphis|Delphinidae|Common_dolphin
+Phocoena phocoena|Phocoenidae|Harbour_porpoise
+Physeter macrocephalus|Physeteridae|Sperm_whale
+Monodon monoceros|Monodontidae|Narwhal
+Delphinapterus leucas|Monodontidae|Beluga_whale
+Phoca vitulina|Phocidae|Harbour_seal
+Halichoerus grypus|Phocidae|Grey_seal
+Odobenus rosmarus|Odobenidae|Walrus
+Ursus maritimus|Ursidae|Polar_bear
+Enhydra lutris|Mustelidae|Sea_otter
+Lutra lutra|Mustelidae|Eurasian_otter
+Castor fiber|Castoridae|Eurasian_beaver
+Rana temporaria|Ranidae|Common_frog
+Rana catesbeiana|Ranidae|American_bullfrog
+Bufo bufo|Bufonidae|Common_toad
+Epidalea calamita|Bufonidae|Natterjack_toad
+Triturus cristatus|Salamandridae|Great_crested_newt
+Lissotriton vulgaris|Salamandridae|Smooth_newt
+Salamandra salamandra|Salamandridae|Fire_salamander
+Caretta caretta|Cheloniidae|Loggerhead_turtle
+Chelonia mydas|Cheloniidae|Green_turtle
+Eretmochelys imbricata|Cheloniidae|Hawksbill_turtle
+Dermochelys coriacea|Dermochelyidae|Leatherback_turtle
+Crocodylus niloticus|Crocodylidae|Nile_crocodile
+Alligator mississippiensis|Alligatoridae|American_alligator
+Sus scrofa|Suidae|Wild_boar
+Cervus elaphus|Cervidae|Red_deer
+Capreolus capreolus|Cervidae|Roe_deer
+Vulpes vulpes|Canidae|Red_fox
+Meles meles|Mustelidae|European_badger
+Homo sapiens|Hominidae|Human
+Bos taurus|Bovidae|Cattle
+Ovis aries|Bovidae|Sheep
+Gallus gallus|Phasianidae|Chicken
+Anas platyrhynchos|Anatidae|Mallard_duck
+Cygnus olor|Anatidae|Mute_swan
+Larus argentatus|Laridae|Herring_gull
+Phalacrocorax carbo|Phalacrocoracidae|Great_cormorant
+Morus bassanus|Sulidae|Northern_gannet
+Fratercula arctica|Alcidae|Atlantic_puffin
+Aptenodytes forsteri|Spheniscidae|Emperor_penguin
+Pygoscelis adeliae|Spheniscidae|Adelie_penguin
+Ambystoma mexicanum|Ambystomatidae|Axolotl
+Xenopus laevis|Pipidae|African_clawed_frog
+Dugong dugon|Dugongidae|Dugong

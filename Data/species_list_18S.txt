@@ -1,0 +1,8 @@
+# Format: Species_Name|Family|Common_Name
+# Family and Common Name are used for the final header enrichment
+# 18S LIST - EUKARYOTES (PLANKTON)
+
+Calanus finmarchicus|Calanidae|Copepod_finmarchicus
+Calanus helgolandicus|Calanidae|Copepod_helgolandicus
+
+================ADD YOUR SPECIES LIST===============================

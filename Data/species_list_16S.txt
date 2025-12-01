@@ -1,0 +1,8 @@
+# Format: Species_Name|Family|Common_Name
+# Family and Common Name are used for the final header enrichment
+# 16S LIST - VERTEBRATES (MAMMALS/AMPHIBIANS)
+
+Balaenoptera musculus|Balaenopteridae|Blue_whale
+Megaptera novaeangliae|Balaenopteridae|Humpback_whale
+
+================ADD YOUR SPECIES LIST===============================

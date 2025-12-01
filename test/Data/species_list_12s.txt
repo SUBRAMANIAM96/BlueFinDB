@@ -1,5 +1,5 @@
-# Format: Species_Name|Family|Common_Name
-# Scientific name is used for the NCBI search (Stage 2).
+# Format: Species_Name|Family|Common_Name(TEST)
+# Scientific name is used for the NCBI search.
 # Family and Common Name are used for the final header enrichment
 
 Gadus morhua|Gadidae|Atlantic_cod
@@ -8,6 +8,7 @@ Merluccius merluccius|Merlucciidae|European_hake
 Scomber scombrus|Scombridae|Atlantic_mackerel
 Clupea harengus|Clupeidae|Atlantic_herring
 Sardina pilchardus|Clupeidae|European_sardine
+Sebastes marinus|Sebastidae|Golden_redfish
 Sardinella aurita|Clupeidae|Round_sardinella
 Trachurus trachurus|Carangidae|Atlantic_horse_mackerel
 Engraulis encrasicolus|Engraulidae|European_anchovy
@@ -20,4 +21,5 @@ Pollachius virens|Gadidae|Saithe
 Molva molva|Lotidae|Common_ling
 Lophius piscatorius|Lophiidae|Anglerfish
 Scophthalmus maximus|Scophthalmidae|Turbot
-Zeus faber|Zeidae|John_Dory
+Serranus cabrilla|Serranidae|Comber
+

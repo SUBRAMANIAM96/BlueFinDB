@@ -1,0 +1,8 @@
+# Format: Species_Name|Family|Common_Name
+# Family and Common Name are used for the final header enrichment
+# COI LIST - INVERTEBRATES
+
+Homarus americanus|Nephropidae|American_lobster
+Homarus gammarus|Nephropidae|European_lobster
+
+================ADD YOUR SPECIES LIST===============================

@@ -1,0 +1,54 @@
+# Format: Species_Name|Family|Common_Name(TEST)
+# Family and Common Name are used for the final header enrichment
+# 18S TEST LIST - EUKARYOTES (PLANKTON)
+
+Calanus finmarchicus|Calanidae|Copepod_finmarchicus
+Calanus helgolandicus|Calanidae|Copepod_helgolandicus
+Acartia tonsa|Acartiidae|Copepod_tonsa
+Temora longicornis|Temoridae|Copepod_longicornis
+Oithona similis|Oithonidae|Cyclopoid_copepod
+Centropages typicus|Centropagidae|Copepod_typicus
+Euphausia superba|Euphausiidae|Antarctic_krill
+Meganyctiphanes norvegica|Euphausiidae|Northern_krill
+Daphnia magna|Daphniidae|Water_flea
+Artemia salina|Artemiidae|Brine_shrimp
+Thalassiosira weissflogii|Thalassiosiraceae|Diatom_weissflogii
+Skeletonema costatum|Skeletonemataceae|Diatom_costatum
+Chaetoceros affinis|Chaetocerotaceae|Diatom_affinis
+Phaeodactylum tricornutum|Phaeodactylaceae|Diatom_tricornutum
+Emiliania huxleyi|Noelaerhabdaceae|Coccolithophore
+Alexandrium tamarense|Gonyaulacaceae|Dinoflagellate_tamarense
+Karenia brevis|Brachidiniaceae|Red_tide_dinoflagellate
+Noctiluca scintillans|Noctilucaceae|Sea_sparkle
+Symbiodinium microadriaticum|Symbiodiniaceae|Zooxanthellae
+Saccharomyces cerevisiae|Saccharomycetaceae|Baker_s_yeast
+Candida albicans|Saccharomycetaceae|Candida_yeast
+Aspergillus niger|Aspergillaceae|Black_mold
+Penicillium chrysogenum|Aspergillaceae|Penicillin_mold
+Caenorhabditis elegans|Rhabditidae|Nematode_worm
+Drosophila melanogaster|Drosophilidae|Fruit_fly
+Brachionus plicatilis|Brachionidae|Rotifer
+Amoeba proteus|Amoebidae|Giant_amoeba
+Paramecium caudatum|Parameciidae|Paramecium
+Tetrahymena thermophila|Tetrahymenidae|Tetrahymena
+Chlamydomonas reinhardtii|Chlamydomonadaceae|Green_alga
+Volvox carteri|Volvocaceae|Globe_alga
+Ulva lactuca|Ulvaceae|Sea_lettuce
+Laminaria digitata|Laminariaceae|Oarweed
+Fucus vesiculosus|Fucaceae|Bladder_wrack
+Ascophyllum nodosum|Fucaceae|Knotted_wrack
+Porphyra umbilicalis|Bangiaceae|Laver_seaweed
+Chondrus crispus|Gigartinaceae|Irish_moss
+Navicula radiosa|Naviculaceae|Diatom_radiosa
+Coscinodiscus wailesii|Coscinodiscaceae|Diatom_wailesii
+Pseudo-nitzschia australis|Bacillariaceae|Diatom_toxic
+Dinophysis acuminata|Dinophysiaceae|Dinoflagellate_toxic
+Lingulodinium polyedra|Gonyaulacaceae|Red_tide_alga
+Globigerina bulloides|Globigerinidae|Foraminifera
+Ammonia beccarii|Rotaliidae|Benthic_foram
+Radiolaria sp.|Radiolaria|Radiolarian
+Trypanosoma brucei|Trypanosomatidae|Sleeping_sickness_parasite
+Plasmodium falciparum|Plasmodiidae|Malaria_parasite
+Giardia lamblia|Hexamitidae|Giardia
+Toxoplasma gondii|Sarcocystidae|Toxoplasmosis_parasite
+Cryptosporidium parvum|Cryptosporidiidae|Crypto_parasite
