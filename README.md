@@ -82,18 +82,6 @@ The 18S module uniquely implements a **priority-based search algorithm** that qu
 
 - Linux, macOS, or WSL (Windows Subsystem for Linux)
 
----
-
-## 📥 Requirements & Setup
-
-**OS**: Linux, macOS, or WSL (Windows Subsystem for Linux).
-
-**Core Tools**: python3 (with Biopython), NCBI EDirect (esearch, efetch), and BLAST+ (makeblastdb, blastn).
-
-**Trimming Tool**: cutadapt (required if using the --mifish-preset or --trim-primers flags).
-
----
-
 ## 📂 Repository Structure
 
 The pipeline follows a modular architecture designed for clarity and maintainability:
