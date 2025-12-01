@@ -58,28 +58,6 @@ The 18S module uniquely implements a **priority-based search algorithm** that qu
 
 **Automated manifest logging** generates a `BlueFinDB_Manifest.txt` file capturing timestamps, software version, active primer sets, and all filter parameters. This complete audit trail meets publication-grade reproducibility standards and supports transparent peer review.
 
-### 9. 100% Taxonomically Validated
-
-Automatically performs a 1:1 lookup against NCBI using the Accession ID to retrieve and integrate the official TaxID, Class, Order, and Family into the FASTA header, guaranteeing data traceability and credibility.
-
-### 10. Molecular Fidelity (Dual-Trimming)
-
-Employs mismatch-tolerant in silico PCR (cutadapt -e 0.20) with a competitive dual-trimming logic (MiFish-U and MiFish-E) to maximize the isolation of the optimal gene fragment for mixed fauna (Teleosts and Elasmobranchs).
-
-### 11. Targeted Curation
-
-Uses a sequence length filter to deliberately exclude massive mitochondrial genomes and prioritize trimmable marker-specific gene fragments for reliable amplicon preparation.
-
-### 12. Zero-Step Deployment
-
-Automatically executes makeblastdb after curation, providing a fully indexed, searchable database file that is immediately ready for blastn queries.
-
-### 13. Full Traceability
-
-Generates detailed audit logs (bluefindb_run.log and cutadapt_details.log) documenting every API call, trimming attempt, and final accession used for reproducible science.
-
----
-
 ## 🛠️ Dependencies
 
 ### Core Bioinformatics Tools
