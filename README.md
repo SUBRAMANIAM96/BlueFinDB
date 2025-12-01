@@ -10,20 +10,6 @@ BlueFinDB is an automated bioinformatics pipeline designed to construct taxonomi
 
 3. BlueFinDB addresses this gap with an open-source, multi-marker pipeline designed for flexibility and high recovery rates. It builds highly accurate, project-specific reference libraries for 12S, COI, 16S, and 18S markers. By utilizing standard primer sets (e.g., MiFish, Leray-XT, Vences V4, and Stoeck V9) according to researcher preference, it ensures that valid data is retained and curated rather than discarded.
 
-BlueFinDB integrates the best practices of complex pipelines (like in silico PCR and taxonomic API tracing) into a single, accessible Bash/Python workflow:
-
-**100% Taxonomically Validated**: Automatically performs a 1:1 lookup against NCBI using the Accession ID to retrieve and integrate the official TaxID, Class, Order, and Family into the FASTA header, guaranteeing data traceability and credibility.
-
-**Molecular Fidelity (Dual-Trimming)**: Employs mismatch-tolerant in silico PCR (cutadapt -e 0.20) with a competitive dual-trimming logic (MiFish-U and MiFish-E) to maximize the isolation of the optimal gene fragment for mixed fauna (Teleosts and Elasmobranchs).
-
-**Targeted Curation**: Uses a sequence length filter (AND 100:1500[SLEN]) in the NCBI query to deliberately exclude massive mitochondrial genomes and prioritize trimmable 12S-specific gene fragments for reliable amplicon preparation.
-
-**Zero-Step Deployment**: Automatically executes makeblastdb (Stage 6) after curation, providing a fully indexed, searchable database file that is immediately ready for blastn queries.
-
-**Full Traceability**: Generates detailed audit logs (bluefindb_run.log and cutadapt_details.log) documenting every API call, trimming attempt, and final accession used for reproducible science.
-
----
-
 ## 🌟 Key Features of BlueFinDB v3.0
 
 ### 1. Enterprise-Grade NCBI Retrieval Architecture
