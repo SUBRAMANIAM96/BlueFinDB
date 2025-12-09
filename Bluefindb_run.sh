@@ -265,9 +265,9 @@ fi
 # ==============================================================================
 echo -e "\n${BOLD}4. Rescue & Gap Analysis${NC}"
 
-ACCESSIONS_FILE="${MARKER}_accessions.tsv"
+ACCESSIONS_FILE="output/${MARKER}_accessions.tsv"
 PATCH_SCRIPT="fix_taxonomy.sh"
-FINAL_FASTA="${DB_NAME}.fasta"
+FINAL_FASTA="output/${DB_NAME}.fasta"
 
 if grep -E "FAILED|NA\tSUCCESS" "$ACCESSIONS_FILE" > /dev/null; then
     echo -e "   ${YELLOW}🔬 Gaps detected. Initializing Rescue Protocols...${NC}"
