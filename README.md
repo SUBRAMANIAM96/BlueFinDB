@@ -6,10 +6,10 @@ BlueFinDB is an automated bioinformatics pipeline designed to construct taxonomi
 
 1. BlueFinDB is an automated bioinformatics pipeline designed to construct taxonomically curated reference databases for environmental DNA (eDNA) metabarcoding. It accepts a target species list and generates a validated, local BLAST database for specific marker genes, including COI, 12S, 16S, and 18S.
 
-2. The reproducibility of environmental DNA (eDNA) metabarcoding depends entirely on transparent and replicable workflows for creating complete, curated reference databases. Conventional curation tools (such as RESCRIPT, CRUX, and OBITools) often operate as rigid, non-flexible workflows. They frequently discard valid taxa due to minor primer mismatches or fail completely when specific marker sequences are absent in public repositories.
+2. eDNA metabarcoding reproducibility relies on transparent, replicable workflows for curated reference databases. Conventional tools (RESCRIPT, CRUX, OBITools) are rigid, often discarding valid taxa due to minor primer mismatches or missing marker sequences..
 
-3. BlueFinDB addresses this gap with an open-source, multi-marker pipeline designed for flexibility and high recovery rates. It builds highly accurate, project-specific reference libraries for 12S, COI, 16S, and 18S markers. By utilizing standard primer sets (e.g., MiFish, Leray-XT, Vences V4, and Stoeck V9) according to researcher preference, it ensures that valid data is retained and curated rather than discarded.
-
+3. BlueFinDB is an open-source, multi-marker pipeline that builds accurate, project-specific reference libraries for 12S, COI, 16S, and 18S. Using standard primer sets (e.g., MiFish, Leray-XT, Vences V4, Stoeck V9), it retains and curates valid data instead of discarding it.
+   
 ## 🌟 Key Features of BlueFinDB v3.0
 
 ### 1. Enterprise-Grade NCBI Retrieval Architecture
