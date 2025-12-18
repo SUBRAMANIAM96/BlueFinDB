@@ -32,7 +32,6 @@ REV_PRIMER_SEQ="$5"
 SCRIPT_VERSION="$6"
 
 PATCH_LOG="output/logs/taxonomy_patch.log" 
-MANIFEST_FILE="BlueFinDB_Manifest.txt"
 
 # --- 2. START LOGGING ---
 echo -e "\n[STAGE 3] Starting final database QC (VSEARCH) and re-index..." | tee -a "$PATCH_LOG"
@@ -88,7 +87,10 @@ echo "[QC STEP 5] Building final BLAST database..." | tee -a "$QC_LOG_FILE" "$PA
 DB_DIR=$(dirname "$FASTA_FILE")
 FULL_DB_PATH="${DB_DIR}/${BLAST_DB_NAME}"
 
-# Clean up old database files in the output directory (not root)
+# UPDATE: Set Manifest path to be inside the output directory
+MANIFEST_FILE="${DB_DIR}/BlueFinDB_Manifest.txt"
+
+
 find "$DB_DIR" -maxdepth 1 -name "${BLAST_DB_NAME}.n*" -delete
 
 # Build database specifically in the output directory
