@@ -81,9 +81,18 @@ mv "$TEMP_CHIMERA_FREE" "$FASTA_FILE"
 rm -f "$TEMP_N_FILTER" "$TEMP_DEREPEATED"
 
 # --- 4. BUILD AND MANIFEST ---
+
 echo "[QC STEP 5] Building final BLAST database..." | tee -a "$QC_LOG_FILE" "$PATCH_LOG"
-find . -maxdepth 1 -name "${BLAST_DB_NAME}.n*" -delete
-makeblastdb -in "$FASTA_FILE" -dbtype nucl -out "$BLAST_DB_NAME" >> "$QC_LOG_FILE" 2>&1
+
+# Derive output directory from the FASTA file path
+DB_DIR=$(dirname "$FASTA_FILE")
+FULL_DB_PATH="${DB_DIR}/${BLAST_DB_NAME}"
+
+# Clean up old database files in the output directory (not root)
+find "$DB_DIR" -maxdepth 1 -name "${BLAST_DB_NAME}.n*" -delete
+
+# Build database specifically in the output directory
+makeblastdb -in "$FASTA_FILE" -dbtype nucl -out "$FULL_DB_PATH" >> "$QC_LOG_FILE" 2>&1
 
 echo -e "\n✅ QC & Build Complete! Final unique, QC-passed sequences: $FINAL_COUNT" | tee -a "$QC_LOG_FILE" "$PATCH_LOG"
 

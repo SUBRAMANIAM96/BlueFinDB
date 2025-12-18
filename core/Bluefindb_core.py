@@ -122,7 +122,6 @@ def log(message, level="INFO"):
         else:
             print(f"SUCCESS: {message}")
     elif level == "INFO":
-        
         pass 
 
 def print_header(version, marker, fwd, rev, alt_f, alt_r, desc):
@@ -753,6 +752,13 @@ def run_bluefindb_core(args):
                 header = build_fasta_header(sp_key, data)
                 outfile_fasta.write(f"{header}\n{seq}\n")
                 species_info[sp_key] = data # [ADDED] Save for table
+                
+                # [FIX START] Save individual curated file
+                curated_file = os.path.join(args.filtered_dir, f"{sp_key}_curated.fasta")
+                with open(curated_file, "w") as f:
+                    f.write(f"{header}\n{seq}\n")
+                # [FIX END]
+
             else:
                 accessions_file.write(f"{species}\tNA\tNA\tFAILED_ALL_PRIMERS\n")
                 if RICH_AVAILABLE: console.print(f"   [red]✘ Failed[/red]")

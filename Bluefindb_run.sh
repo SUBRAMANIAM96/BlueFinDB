@@ -31,7 +31,7 @@ NC='\033[0m' # No Color
 VERSION="v3.0"
 DEFAULT_SLEEP=1 
 DB_NAME_BASE="BlueFinDB"
-DEFAULT_INPUT_FILE="Data/species_list_16S.txt"
+DEFAULT_INPUT_FILE="Data/species_list_12S.txt"
 
 # ==============================================================================
 # 1. PRIMER & LENGTH DEFINITIONS

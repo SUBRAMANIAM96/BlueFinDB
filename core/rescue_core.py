@@ -112,7 +112,10 @@ def generate_two_stage_patch_script(stage1_fixes, stage2_fixes, db_name, raw_dir
     """Generates the structured bash script with Stage 1 (Seq) and Stage 2 (Tax) sections."""
     
     script_name = "fix_taxonomy.sh"
-    fasta_file = f"{db_name}.fasta"
+    
+    # [FIX APPLIED HERE]
+    # Ensure the script targets the database INSIDE the output directory
+    fasta_file = f"output/{db_name}.fasta"
     
     # Construct Bash Arrays for Primers (Allows unlimited primers)
     fwd_list_str = " ".join([f'"{p[0]}"' for p in active_suite])
@@ -245,7 +248,6 @@ inject_and_trim() {
             f.write(f"# 🐟 FIX REQUIRED: {species} (Reason: {data['status']})\n")
             f.write(f"CORRECT_ACCESSION_{sp_var}=\"{acc}\"\n")
             f.write(f"if [[ \"$CORRECT_ACCESSION_{sp_var}\" != *\"NA_FILL_ME\"* ]]; then\n")
-            # NOTE: Removed P1_F/P1_R arguments because they are now global arrays
             f.write(f"  inject_and_trim \"{species}\" \"$CORRECT_ACCESSION_{sp_var}\" \"$PATCH_LOG\" \"$FASTA_FILE\" \"$RAW_DIR\"\n")
             f.write(f"fi\n\n")
 
